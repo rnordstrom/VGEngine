@@ -1,2 +1,4 @@
 ﻿  graphics2d.cpp
+c:\users\rikard\documents\github\vgengine\vg_engine\vg_gfx\graphics2d.cpp(76): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\rikard\documents\github\vgengine\vg_engine\vg_gfx\graphics2d.cpp(93): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   vg_gfx.vcxproj -> C:\Users\Rikard\Documents\GitHub\VGEngine\vg_engine\Debug\vg_gfx.dll
