@@ -32,8 +32,14 @@ namespace Draw
 		void drawSprite(sf::Sprite & sprite, int xAbs, int yAbs);
 	public:
 		Draw2D(const std::string & title, int width = 800, int height = 600);
-		void clearScreen();
-		void displayFrame();
+		inline void clearScreen()
+		{
+			window.clear();
+		};
+		inline void displayFrame()
+		{
+			window.display();
+		};
 		void drawImage(const std::string & fileName);
 		void drawImage(const std::string & fileName, int xAbs, int yAbs);
 		void drawImage(const std::string & fileName, Util::ClipRect & clip, int xAbs = 0, int yAbs = 0);

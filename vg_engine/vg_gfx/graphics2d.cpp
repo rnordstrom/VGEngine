@@ -52,20 +52,8 @@ void Draw2D::drawSprite(const sf::Sprite & sprite)
 
 void Draw2D::drawSprite(sf::Sprite & sprite, int xAbs, int yAbs)
 {
-	sprite.move(sf::Vector2f(xAbs, yAbs));
+	sprite.setPosition(sf::Vector2f(xAbs, yAbs));
 	drawSprite(sprite);
-}
-
-/*	Clear screen */
-void Draw2D::clearScreen()
-{
-	window.clear();
-}
-
-/*	Display drawn objects */
-void Draw2D::displayFrame()
-{
-	window.display();
 }
 
 /*	Load texture from file */
