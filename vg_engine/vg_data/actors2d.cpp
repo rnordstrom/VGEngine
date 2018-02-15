@@ -1,10 +1,8 @@
 #include "actors2d.h"
 #include "geometry2d.h"
 
-using Actor2D::Entity;
-
-using Geometry::Dimensions;
-using Geometry::Dimensions;
+using namespace Actor2D;
+using namespace Geometry;
 
 void Entity::setDimensions(const Dimensions & dimensions)
 {
