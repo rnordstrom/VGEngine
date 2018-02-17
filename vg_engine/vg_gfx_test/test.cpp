@@ -2,35 +2,46 @@
 #include <functional>
 #include "../vg_gfx/graphics2d.h"
 
+using sf::RenderWindow;
 using sf::Texture;
 using sf::Sprite;
 using sf::IntRect;
+
+using Render2D::Renderer;
 
 class WindowTest : public ::testing::Test
 {
 protected:
 	virtual void SetUp()
 	{
-		draw2d = new Draw::Draw2D("Test");
-		draw2d->setVsync(true);
+		renderer = new Renderer("Test");
+		renderer->setVsync(true);
 	}
 
-	Draw::Draw2D * draw2d;
+	Renderer * renderer;
 };
 
 TEST_F(WindowTest, TestDrawImages) 
 {
-	int runs = 1000;
 	Texture texture;
 	Sprite sprite;
 
 	texture.loadFromFile("../Resources/test.png");
 	sprite.setTexture(texture);
 
-	while (runs--)
+	while (renderer->getWindow().isOpen())
 	{
-		draw2d->clearScreen();
-		draw2d->drawSprite(sprite);
-		draw2d->displayFrame();
+		sf::Event event;
+		while (renderer->getWindow().pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+			{
+				renderer->getWindow().close();
+			}
+		}
+
+		renderer->clearScreen();
+		renderer->drawSprite(sprite);
+		renderer->displayFrame();
 	}
 }

@@ -10,31 +10,36 @@ namespace Actor2D
 
 	using std::string;
 	using std::shared_ptr;
-	using std::unique_ptr;
 
+	/*	Represents an abstract two-dimensional entity */
 	class Entity
 	{
 	private:
 		Coordinates coordinates_;
 		Dimensions dimensions_;
+		float angleOfRotation_;
 		string textureFileName_;
 	public:
 		Entity() : 
 			coordinates_{ 0, 0 }, 
 			dimensions_{ 0, 0 }, 
+			angleOfRotation_ { 0.0 },
 			textureFileName_{ " " } {};
-		Entity(const Coordinates & coordinates, const Dimensions & dimensions, const string & textureFileName) : 
+		Entity(const Coordinates & coordinates, const Dimensions & dimensions, float angleOfRotation, const string & textureFileName) : 
 			coordinates_{ coordinates }, 
 			dimensions_{ dimensions }, 
+			angleOfRotation_{ angleOfRotation },
 			textureFileName_{ textureFileName } {};
-		inline const Coordinates & getCoordinates() const { return coordinates_; };
-		inline void setCoordinates(const Coordinates & coordinates) { coordinates_ = coordinates; };
-		inline const Dimensions & getDimensions() const { return dimensions_; };
-		void setDimensions(const Dimensions & dimensions);
+		inline Coordinates & coordinates() { return coordinates_; };
+		inline Dimensions & dimensions() { return dimensions_; };
+		inline float getAngleOfRotation() { return angleOfRotation_; };
+		inline void setAngleOfRotation(float angleOfRotation) { angleOfRotation_ = angleOfRotation; };
 		const string & getTextureFileName() const;
-		bool operator==(const Entity &) const;
+		virtual bool operator==(const Entity &) const;
+		virtual ~Entity() {};
 	};
 
+	/*	Encapsulates an Entity instance and provides engine-specific details */
 	template <typename Texture, typename Sprite>
 	class EntityWrapper
 	{
@@ -47,9 +52,8 @@ namespace Actor2D
 			entity_{ entity }, 
 			texture_{ texture }, 
 			sprite_{ sprite } {};
-		inline const Entity & getEntity() const { return entity_; };
+		inline Entity & entity() { return entity_; };
 		inline const shared_ptr<Texture> & getTexture() const { return texture_; };
-		inline Sprite getSprite() const { return sprite_; };
-		inline void setSprite(const Sprite & newSprite) { sprite_ = newSprite; };
+		inline Sprite & sprite() { return sprite_; };
 	};
 }

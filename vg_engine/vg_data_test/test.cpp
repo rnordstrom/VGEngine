@@ -16,35 +16,43 @@ TEST(EntityTest, TestConstructor)
 {
 	Coordinates coordinates{5, 15};
 	Dimensions dimensions{10, 25};
+	float angleOfRotation = 0.0;
 	string textureFileName = "test.png";
 
-	Entity entity(coordinates, dimensions, textureFileName);
+	Entity entity(coordinates, dimensions, angleOfRotation, textureFileName);
 
-	EXPECT_EQ(coordinates.x, entity.getCoordinates().x);
-	EXPECT_EQ(coordinates.y, entity.getCoordinates().y);
+	EXPECT_EQ(coordinates.x, entity.coordinates().x);
+	EXPECT_EQ(coordinates.y, entity.coordinates().y);
 
-	EXPECT_EQ(dimensions.width, entity.getDimensions().width);
-	EXPECT_EQ(dimensions.height, entity.getDimensions().height);
+	EXPECT_EQ(dimensions.width, entity.dimensions().width);
+	EXPECT_EQ(dimensions.height, entity.dimensions().height);
+
+	EXPECT_EQ(angleOfRotation, entity.getAngleOfRotation());
 
 	EXPECT_STREQ(textureFileName.c_str(), entity.getTextureFileName().c_str());
 }
 
-TEST(EntityTest, TestSetMethods)
+TEST(EntityTest, TestGetSet)
 {
 	Entity emptyEntity;
 
 	Coordinates coordinates{ 15, 50 };
 	Dimensions dimensions{ 20, 25 };
+	float angleOfRotation = 0.0;
 
-	emptyEntity.setCoordinates(coordinates);
+	emptyEntity.coordinates() = coordinates;
 
-	EXPECT_EQ(coordinates.x, emptyEntity.getCoordinates().x);
-	EXPECT_EQ(coordinates.y, emptyEntity.getCoordinates().y);
+	EXPECT_EQ(coordinates.x, emptyEntity.coordinates().x);
+	EXPECT_EQ(coordinates.y, emptyEntity.coordinates().y);
 
-	emptyEntity.setDimensions(dimensions);
+	emptyEntity.dimensions() = dimensions;
 
-	EXPECT_EQ(dimensions.width, emptyEntity.getDimensions().width);
-	EXPECT_EQ(dimensions.height, emptyEntity.getDimensions().height);
+	EXPECT_EQ(dimensions.width, emptyEntity.dimensions().width);
+	EXPECT_EQ(dimensions.height, emptyEntity.dimensions().height);
+
+	emptyEntity.setAngleOfRotation(angleOfRotation);
+
+	EXPECT_EQ(angleOfRotation, emptyEntity.getAngleOfRotation());
 }
 
 TEST(EntityWrapperTest, TestConstructor)
@@ -57,8 +65,8 @@ TEST(EntityWrapperTest, TestConstructor)
 	EntityWrapper<string, string> wrapper1(emptyEntity, texture, sprite);
 	EntityWrapper<string, string> wrapper2(emptyEntity, texture, spriteCopy);
 
-	ASSERT_EQ(wrapper1.getEntity(), wrapper2.getEntity());
+	ASSERT_EQ(wrapper1.entity(), wrapper2.entity());
 	EXPECT_EQ(wrapper1.getTexture(), wrapper2.getTexture());
 	EXPECT_STREQ(wrapper1.getTexture()->c_str(), wrapper2.getTexture()->c_str());
-	EXPECT_STREQ(wrapper1.getSprite().c_str(), wrapper2.getSprite().c_str());
+	EXPECT_STREQ(wrapper1.sprite().c_str(), wrapper2.sprite().c_str());
 }
