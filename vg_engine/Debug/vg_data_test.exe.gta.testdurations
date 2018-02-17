@@ -5,5 +5,6 @@
     <TestDuration Test="EntityTest.TestConstructor" Duration="1" />
     <TestDuration Test="EntityTest.TestSetMethods" Duration="1" />
     <TestDuration Test="EntityWrapperTest.TestConstructor" Duration="1" />
+    <TestDuration Test="EntityTest.TestGetSet" Duration="1" />
   </TestDurations>
 </GtaTestDurations>
