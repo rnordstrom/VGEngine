@@ -39,7 +39,7 @@ namespace Actor2D
 		virtual ~Entity() {};
 	};
 
-	/*	Encapsulates an Entity instance and provides engine-specific details */
+	/*	Encapsulates an Entity instance and provides engine-specific collisionDetails_ */
 	template <typename Texture, typename Sprite>
 	class EntityWrapper
 	{

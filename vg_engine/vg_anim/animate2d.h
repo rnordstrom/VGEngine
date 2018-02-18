@@ -20,7 +20,7 @@ namespace Animate2D
 	private:
 		Renderer renderer;
 	public:
-		Animator(const string & title) : renderer{ title } {};
+		explicit Animator(const string & title) : renderer{ title } {};
 		void apply(EntityWrapper<Texture, Sprite> & wrapper);
 		inline Renderer & getRenderer() { return renderer; };
 	};

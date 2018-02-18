@@ -6,6 +6,6 @@
     <TestDuration Test="WindowTest.TestDrawImageNoPos" Duration="7837" />
     <TestDuration Test="WindowTest.TestDrawImageAbsPos" Duration="36" />
     <TestDuration Test="WindowTest.TestDrawImageAbsPosClip" Duration="31" />
-    <TestDuration Test="WindowTest.TestDrawImages" Duration="2815" />
+    <TestDuration Test="WindowTest.TestDrawImages" Duration="5858" />
   </TestDurations>
 </GtaTestDurations>

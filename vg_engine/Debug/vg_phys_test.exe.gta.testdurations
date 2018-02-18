@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GtaTestDurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Executable>C:\Users\Rikard\Documents\GitHub\VGEngine\vg_engine\Debug\vg_phys_test.exe</Executable>
+  <TestDurations>
+    <TestDuration Test="MotionTests.TestMotionRight" Duration="12383" />
+    <TestDuration Test="MotionTest.TestMotionRight" Duration="13758" />
+    <TestDuration Test="MotionTest.TestMotionLeft" Duration="3118" />
+    <TestDuration Test="MotionTest.TestMotionUp" Duration="2428" />
+    <TestDuration Test="MotionTest.TestMotionDown" Duration="2127" />
+    <TestDuration Test="MotionTest.TestMotionDiagonal" Duration="4115" />
+    <TestDuration Test="MotionTest.TestMotionDiagonalDownRight" Duration="3149" />
+    <TestDuration Test="MotionTest.TestMotionDiagonalUpRight" Duration="2823" />
+    <TestDuration Test="MotionTest.TestMotionDiagonalDownLeft" Duration="3787" />
+    <TestDuration Test="MotionTest.TestMotionDiagonalUpLeft" Duration="3537" />
+  </TestDurations>
+</GtaTestDurations>
