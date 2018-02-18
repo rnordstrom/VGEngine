@@ -56,6 +56,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vg_data_test", "vg_data_tes
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vg_anim_test", "vg_anim_test\vg_anim_test.vcxproj", "{D01D0EBE-DE8B-4AB9-B3AD-8016C45D53F5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vg_phys_test", "vg_phys_test\vg_phys_test.vcxproj", "{9819541D-DB97-4300-9C3A-6CA9E5627211}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -168,6 +170,14 @@ Global
 		{D01D0EBE-DE8B-4AB9-B3AD-8016C45D53F5}.Release|x64.Build.0 = Release|x64
 		{D01D0EBE-DE8B-4AB9-B3AD-8016C45D53F5}.Release|x86.ActiveCfg = Release|Win32
 		{D01D0EBE-DE8B-4AB9-B3AD-8016C45D53F5}.Release|x86.Build.0 = Release|Win32
+		{9819541D-DB97-4300-9C3A-6CA9E5627211}.Debug|x64.ActiveCfg = Debug|x64
+		{9819541D-DB97-4300-9C3A-6CA9E5627211}.Debug|x64.Build.0 = Debug|x64
+		{9819541D-DB97-4300-9C3A-6CA9E5627211}.Debug|x86.ActiveCfg = Debug|Win32
+		{9819541D-DB97-4300-9C3A-6CA9E5627211}.Debug|x86.Build.0 = Debug|Win32
+		{9819541D-DB97-4300-9C3A-6CA9E5627211}.Release|x64.ActiveCfg = Release|x64
+		{9819541D-DB97-4300-9C3A-6CA9E5627211}.Release|x64.Build.0 = Release|x64
+		{9819541D-DB97-4300-9C3A-6CA9E5627211}.Release|x86.ActiveCfg = Release|Win32
+		{9819541D-DB97-4300-9C3A-6CA9E5627211}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
