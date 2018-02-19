@@ -5,23 +5,14 @@
 
 namespace Animate2D
 {
-	using std::string;
-
-	using sf::Texture;
-	using sf::Sprite;
-
-	using Render2D::Renderer;
-
-	using Actor2D::EntityWrapper;
-
 	/*	Animates a two-dimensional Entity */
 	class Animator
 	{
 	private:
-		Renderer renderer;
+		Render2D::Renderer renderer;
 	public:
-		explicit Animator(const string & title) : renderer{ title } {};
-		void apply(EntityWrapper<Texture, Sprite> & wrapper);
-		inline Renderer & getRenderer() { return renderer; };
+		explicit Animator(const std::string & windowTitle) : renderer{ windowTitle } {};
+		void apply(Actor2D::EntityWrapper<sf::Texture, sf::Sprite> & wrapper);
+		inline Render2D::Renderer & getRenderer() { return renderer; };
 	};
 }

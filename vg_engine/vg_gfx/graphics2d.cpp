@@ -4,16 +4,16 @@ using sf::RenderWindow;
 
 using Render2D::Renderer;
 
-/*	Construct an instance of Render2D; create and display a system window. */
+/*	Construct an instance of Render2D; create and display a system window_. */
 Renderer::Renderer(const std::string & title, int width, int height)
 {
-	window.create(sf::VideoMode(width, height), title);
-	window.setVerticalSyncEnabled(true);
+	window_.create(sf::VideoMode(width, height), title);
+	window_.setVerticalSyncEnabled(true);
 }
 
 /*	Toggle VSync on/off  */
 void Renderer::setVsync(bool b)
 {
-	window.setVerticalSyncEnabled(b);
+	window_.setVerticalSyncEnabled(b);
 }
 

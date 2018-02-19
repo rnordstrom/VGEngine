@@ -8,32 +8,32 @@ using Physics2D::Motor;
 using Actor2D::Entity;
 
 /*	Determines if a collision has occurred between an Entity 
-	and the horizontal/vertical limits of the window */
+	and the horizontal/vertical limits of the window_ */
 bool CollisionDetector::detect(Entity entity)
 {
 	resetCollisionDetails();
 	bool collided = false;
 
-	if (entity.coordinates().x < 0)
+	if (entity.coordinates().x < 0.0)
 	{
 		collisionDetails_.collisionX = true;
 		collisionDetails_.hDir = HorizontalDirection::left;
 		collided = true;
 	}
-	else if (entity.coordinates().x + entity.dimensions().width > screenWidth_)
+	else if (entity.coordinates().x + (float) entity.dimensions().width > (float) windowWidth_)
 	{
 		collisionDetails_.collisionX = true;
 		collisionDetails_.hDir = HorizontalDirection::right;
 		collided = true;
 	}
 
-	if (entity.coordinates().y < 0)
+	if (entity.coordinates().y < 0.0)
 	{
 		collisionDetails_.collisionY = true;
 		collisionDetails_.vDir = VerticalDirection::above;
 		collided = true;
 	}
-	else if (entity.coordinates().y + entity.dimensions().height > screenHeight_)
+	else if (entity.coordinates().y + (float) entity.dimensions().height > (float) windowHeight_)
 	{
 		collisionDetails_.collisionY = true;
 		collisionDetails_.vDir = VerticalDirection::below;
@@ -59,6 +59,10 @@ void Motor::moveUp(Entity & entity)
 		{
 			moveDown_(entity);
 		}
+		else
+		{
+			moveUp_(entity);
+		}
 	}
 }
 
@@ -77,6 +81,10 @@ void Motor::moveDown(Entity & entity)
 		if (details.collisionY && details.vDir == VerticalDirection::below)
 		{
 			moveUp_(entity);
+		}
+		else
+		{
+			moveDown_(entity);
 		}
 	}
 }
@@ -97,6 +105,10 @@ void Motor::moveLeft(Entity & entity)
 		{
 			moveRight_(entity);
 		}
+		else
+		{
+			moveLeft_(entity);
+		}
 	}
 }
 
@@ -115,6 +127,10 @@ void Motor::moveRight(Entity & entity)
 		if (details.collisionX && details.hDir == HorizontalDirection::right)
 		{
 			moveLeft_(entity);
+		}
+		else
+		{
+			moveRight_(entity);
 		}
 	}
 }

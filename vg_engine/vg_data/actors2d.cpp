@@ -1,9 +1,7 @@
 #include "actors2d.h"
 #include "geometry2d.h"
 
-using namespace Actor2D;
-using namespace Geometry;
-
+using Actor2D::Entity;
 
 const std::string & Entity::getTextureFileName() const
 {

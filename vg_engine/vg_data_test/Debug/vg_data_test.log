@@ -1,4 +1,1 @@
-﻿  test.cpp
-  LINK : C:\Users\Rikard\Documents\GitHub\VGEngine\vg_engine\Debug\vg_data_test.exe not found or not built by the last incremental link; performing full link
-vg_data.lib(actors2d.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  vg_data_test.vcxproj -> C:\Users\Rikard\Documents\GitHub\VGEngine\vg_engine\Debug\vg_data_test.exe
+﻿  vg_data_test.vcxproj -> C:\Users\Rikard\Documents\GitHub\VGEngine\vg_engine\Debug\vg_data_test.exe
