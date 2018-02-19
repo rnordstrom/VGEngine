@@ -30,7 +30,7 @@ protected:
 	MotionTest() {};
 	virtual void SetUp()
 	{
-		CollisionDetector detector(SCREEN_WIDTH, SCREEN_HEIGHT);
+		CollisionDetector detector(WINDOW_WIDTH, WINDOW_HEIGHT);
 		motor = new Motor(detector);
 
 		animator = new Animator("Test");
@@ -46,8 +46,8 @@ protected:
 		wrapper = new EntityWrapper<Texture, Sprite>(entity, texturePtr, sprite);
 	}
 
-	const int SCREEN_WIDTH = 800;
-	const int SCREEN_HEIGHT = 600;
+	const int WINDOW_WIDTH = 800;
+	const int WINDOW_HEIGHT = 600;
 	const string & TEXTURE_FILE_NAME = "../Resources/test.png";
 	Motor * motor;
 	EntityWrapper<Texture, Sprite> * wrapper;
@@ -63,14 +63,14 @@ TEST_F(MotionTest, TestMotionRight)
 
 	wrapper->entity() = entity;
 
-	while (animator->getRenderer().getWindow().isOpen())
+	while (animator->getRenderer().windowIsOpen())
 	{
 		sf::Event event;
-		while (animator->getRenderer().getWindow().pollEvent(event))
+		while (animator->getRenderer().pollWindowEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
-				animator->getRenderer().getWindow().close();
+				animator->getRenderer().closeWindow();
 			}
 		}
 
@@ -90,14 +90,14 @@ TEST_F(MotionTest, TestMotionLeft)
 
 	wrapper->entity() = entity;
 
-	while (animator->getRenderer().getWindow().isOpen())
+	while (animator->getRenderer().windowIsOpen())
 	{
 		sf::Event event;
-		while (animator->getRenderer().getWindow().pollEvent(event))
+		while (animator->getRenderer().pollWindowEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
-				animator->getRenderer().getWindow().close();
+				animator->getRenderer().closeWindow();
 			}
 		}
 
@@ -117,14 +117,14 @@ TEST_F(MotionTest, TestMotionUp)
 
 	wrapper->entity() = entity;
 
-	while (animator->getRenderer().getWindow().isOpen())
+	while (animator->getRenderer().windowIsOpen())
 	{
 		sf::Event event;
-		while (animator->getRenderer().getWindow().pollEvent(event))
+		while (animator->getRenderer().pollWindowEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
-				animator->getRenderer().getWindow().close();
+				animator->getRenderer().closeWindow();
 			}
 		}
 
@@ -144,14 +144,14 @@ TEST_F(MotionTest, TestMotionDown)
 
 	wrapper->entity() = entity;
 
-	while (animator->getRenderer().getWindow().isOpen())
+	while (animator->getRenderer().windowIsOpen())
 	{
 		sf::Event event;
-		while (animator->getRenderer().getWindow().pollEvent(event))
+		while (animator->getRenderer().pollWindowEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
-				animator->getRenderer().getWindow().close();
+				animator->getRenderer().closeWindow();
 			}
 		}
 
@@ -171,14 +171,14 @@ TEST_F(MotionTest, TestMotionDiagonalDownRight)
 
 	wrapper->entity() = entity;
 
-	while (animator->getRenderer().getWindow().isOpen())
+	while (animator->getRenderer().windowIsOpen())
 	{
 		sf::Event event;
-		while (animator->getRenderer().getWindow().pollEvent(event))
+		while (animator->getRenderer().pollWindowEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
-				animator->getRenderer().getWindow().close();
+				animator->getRenderer().closeWindow();
 			}
 		}
 
@@ -199,14 +199,14 @@ TEST_F(MotionTest, TestMotionDiagonalUpRight)
 
 	wrapper->entity() = entity;
 
-	while (animator->getRenderer().getWindow().isOpen())
+	while (animator->getRenderer().windowIsOpen())
 	{
 		sf::Event event;
-		while (animator->getRenderer().getWindow().pollEvent(event))
+		while (animator->getRenderer().pollWindowEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
-				animator->getRenderer().getWindow().close();
+				animator->getRenderer().closeWindow();
 			}
 		}
 
@@ -227,14 +227,14 @@ TEST_F(MotionTest, TestMotionDiagonalDownLeft)
 
 	wrapper->entity() = entity;
 
-	while (animator->getRenderer().getWindow().isOpen())
+	while (animator->getRenderer().windowIsOpen())
 	{
 		sf::Event event;
-		while (animator->getRenderer().getWindow().pollEvent(event))
+		while (animator->getRenderer().pollWindowEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
-				animator->getRenderer().getWindow().close();
+				animator->getRenderer().closeWindow();
 			}
 		}
 
@@ -255,14 +255,14 @@ TEST_F(MotionTest, TestMotionDiagonalUpLeft)
 
 	wrapper->entity() = entity;
 
-	while (animator->getRenderer().getWindow().isOpen())
+	while (animator->getRenderer().windowIsOpen())
 	{
 		sf::Event event;
-		while (animator->getRenderer().getWindow().pollEvent(event))
+		while (animator->getRenderer().pollWindowEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
-				animator->getRenderer().getWindow().close();
+				animator->getRenderer().closeWindow();
 			}
 		}
 

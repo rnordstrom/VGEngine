@@ -3,8 +3,6 @@
 
 namespace Physics2D
 {
-	using Actor2D::Entity;
-
 	enum class HorizontalDirection{ left, right, none };
 	enum class VerticalDirection{ above, below, none };
 
@@ -21,8 +19,8 @@ namespace Physics2D
 	class CollisionDetector
 	{
 	private:
-		int screenWidth_;
-		int screenHeight_;
+		int windowWidth_;
+		int windowHeight_;
 		CollisionDetails collisionDetails_;
 		inline void resetCollisionDetails()
 		{
@@ -32,13 +30,13 @@ namespace Physics2D
 			collisionDetails_.vDir = VerticalDirection::none;
 		};
 	public:
-		CollisionDetector(int screenWidth, int screenHeight) : 
-			screenWidth_{ screenWidth }, 
-			screenHeight_{ screenHeight } {};
-		bool detect(Entity);
+		CollisionDetector(int windowWidth, int windowHeight) : 
+			windowWidth_{ windowWidth }, 
+			windowHeight_{ windowHeight } {};
+		bool detect(Actor2D::Entity);
 		inline const CollisionDetails & getCollisionDetails() const { return collisionDetails_; };
-		inline void setScreenWidth(int screenWidth) { screenWidth_ = screenWidth; };
-		inline void setScreenHeight(int screenHeight) { screenHeight_ = screenHeight; };
+		inline void setScreenWidth(int screenWidth) { windowWidth_ = screenWidth; };
+		inline void setScreenHeight(int screenHeight) { windowHeight_ = screenHeight; };
 	};
 
 	/*	Moves an Entity across 2D space.
@@ -47,15 +45,15 @@ namespace Physics2D
 	{
 	private:
 		CollisionDetector collisionDetector_;
-		inline void moveUp_(Entity & entity) { entity.coordinates().y -= 1; };
-		void moveDown_(Entity & entity) { entity.coordinates().y += 1; };
-		void moveLeft_(Entity & entity) { entity.coordinates().x -= 1; };
-		void moveRight_(Entity & entity) { entity.coordinates().x += 1; };
+		inline void moveUp_(Actor2D::Entity & entity) { entity.coordinates().y -= 1.0; };
+		void moveDown_(Actor2D::Entity & entity) { entity.coordinates().y += 1.0; };
+		void moveLeft_(Actor2D::Entity & entity) { entity.coordinates().x -= 1.0; };
+		void moveRight_(Actor2D::Entity & entity) { entity.coordinates().x += 1.0; };
 	public:
 		Motor(CollisionDetector detector) : collisionDetector_{ detector } {};
-		void moveUp(Entity & entity);
-		void moveDown(Entity & entity);
-		void moveLeft(Entity & entity);
-		void moveRight(Entity & entity);
+		void moveUp(Actor2D::Entity & entity);
+		void moveDown(Actor2D::Entity & entity);
+		void moveLeft(Actor2D::Entity & entity);
+		void moveRight(Actor2D::Entity & entity);
 	};
 }

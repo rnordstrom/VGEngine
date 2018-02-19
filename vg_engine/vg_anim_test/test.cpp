@@ -38,14 +38,14 @@ TEST(AnimationTests, TestApply)
 
 	EntityWrapper<Texture, Sprite> wrapper(entity, texturePtr, sprite);
 
-	while (animator.getRenderer().getWindow().isOpen())
+	while (animator.getRenderer().windowIsOpen())
 	{
 		sf::Event event;
-		while (animator.getRenderer().getWindow().pollEvent(event))
+		while (animator.getRenderer().pollWindowEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
-				animator.getRenderer().getWindow().close();
+				animator.getRenderer().closeWindow();
 			}
 		}
 

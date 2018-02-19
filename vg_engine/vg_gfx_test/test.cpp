@@ -29,14 +29,14 @@ TEST_F(WindowTest, TestDrawImages)
 	texture.loadFromFile("../Resources/test.png");
 	sprite.setTexture(texture);
 
-	while (renderer->getWindow().isOpen())
+	while (renderer->windowIsOpen())
 	{
 		sf::Event event;
-		while (renderer->getWindow().pollEvent(event))
+		while (renderer->pollWindowEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
-				renderer->getWindow().close();
+				renderer->closeWindow();
 			}
 		}
 
