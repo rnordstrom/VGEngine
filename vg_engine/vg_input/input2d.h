@@ -19,7 +19,7 @@ namespace Input2D
 			animator_{ windowTitle },
 			motor_{ Physics2D::CollisionDetector(windowWidth, windowHeight) },
 			running_{ false } {};
-		void startInputLoop(Actor2D::EntityWrapper<sf::Texture, sf::Sprite> & playerWrapper);
+		void startInputLoop();
 		inline void stopInputLoop() { running_ = false; };
 		inline bool loopIsRunning() { return running_; };
 	};

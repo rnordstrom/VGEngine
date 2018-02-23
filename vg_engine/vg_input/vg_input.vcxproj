@@ -132,6 +132,9 @@
     <ProjectReference Include="..\vg_anim\vg_anim.vcxproj">
       <Project>{1ef4eaf3-e8d2-44ef-9ae8-5f6a7105bf54}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\vg_core\vg_core.vcxproj">
+      <Project>{e973c647-b7c5-41d2-9679-cfef556dd191}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\vg_data\vg_data.vcxproj">
       <Project>{829ddbab-f650-478e-884b-01b104261d7a}</Project>
     </ProjectReference>
