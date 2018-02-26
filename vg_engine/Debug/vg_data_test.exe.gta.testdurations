@@ -6,5 +6,10 @@
     <TestDuration Test="EntityTest.TestSetMethods" Duration="1" />
     <TestDuration Test="EntityWrapperTest.TestConstructor" Duration="1" />
     <TestDuration Test="EntityTest.TestGetSet" Duration="1" />
+    <TestDuration Test="NpcTests.TestGetGoalByPriority" Duration="1" />
+    <TestDuration Test="NpcTests.TestSetGoalPriority" Duration="1" />
+    <TestDuration Test="NpcTests.TestGetSetGoalByType" Duration="1" />
+    <TestDuration Test="NpcTests.TestGetGoalByType" Duration="1" />
+    <TestDuration Test="NpcTests.TestSetGoalByType" Duration="1" />
   </TestDurations>
 </GtaTestDurations>

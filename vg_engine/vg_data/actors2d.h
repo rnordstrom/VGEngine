@@ -2,10 +2,15 @@
 #include "geometry2d.h"
 #include <string>
 #include <memory>
+#include <vector>
 
 namespace Actor2D
 {
-	/*	Represents an abstract two-dimensional entity */
+	enum class GoalType { location, interaction };
+
+	/*	Represents an abstract two-dimensional entity. Entities consist of their coordinates in 2D space,
+		their rectangular dimensions, an angle of rotation and a concrete file name (or path) of a texture
+		image. */
 	class Entity
 	{
 	private:
@@ -33,7 +38,7 @@ namespace Actor2D
 		virtual ~Entity() {};
 	};
 
-	/*	Encapsulates an Entity instance and provides engine-specific collisionDetails_ */
+	/*	Encapsulates an Entity instance and provides engine-specific details */
 	template <typename Texture, typename Sprite>
 	class EntityWrapper
 	{
@@ -49,5 +54,43 @@ namespace Actor2D
 		inline Actor2D::Entity & entity() { return entity_; };
 		inline const std::shared_ptr<Texture> & getTexture() const { return texture_; };
 		inline Sprite & sprite() { return sprite_; };
+	};
+
+	/*	Represents an abstract NPC. An NPC has a set of goals ordered strictly by numeric priority: {1, 2, ..., n};
+		goals consist of a goal type and a set of coordinates in 2D space at which they can be reached by the NPC.
+		NPCs are furthermore equipped with a rectangular range wherein they can detect a player or other NPCs, 
+		and another rectangular range wherein they can interact with other entities. */
+	class NPC : public Entity
+	{
+	private:
+		std::vector<std::pair<GoalType, Geometry::Coordinates>> goals_;
+		Geometry::Dimensions detectionRange_;
+		Geometry::Dimensions interactionRange_;
+	public:
+		NPC();
+		NPC(Geometry::Coordinates coordinates, Geometry::Dimensions dimensions, float angleOfRotation, std::string textureFileName) :
+			Entity(coordinates, dimensions, angleOfRotation, textureFileName) {};
+		inline const std::pair<GoalType, Geometry::Coordinates> & getGoalByPriority(int priority) const { return goals_.at(priority - 1); };
+		void setGoalPriority(GoalType type, int priority);
+		inline const std::pair <GoalType, Geometry::Coordinates> & getGoalByType(GoalType type) const
+		{
+			for (auto goal : goals_)
+			{
+				if (goal.first == type)
+				{
+					return goal;
+				}
+			}
+		}
+		inline void setGoalByType(GoalType type, const Geometry::Coordinates & coordinates)
+		{
+			for (auto & goal : goals_)
+			{
+				if (goal.first == type)
+				{
+					goal.second = coordinates;
+				}
+			}
+		};
 	};
 }
