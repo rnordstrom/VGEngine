@@ -3,14 +3,14 @@
   <Executable>C:\Users\Rikard\Documents\GitHub\VGEngine\vg_engine\Debug\vg_phys_test.exe</Executable>
   <TestDurations>
     <TestDuration Test="MotionTests.TestMotionRight" Duration="12383" />
-    <TestDuration Test="MotionTest.TestMotionRight" Duration="4538" />
-    <TestDuration Test="MotionTest.TestMotionLeft" Duration="4897" />
-    <TestDuration Test="MotionTest.TestMotionUp" Duration="3045" />
-    <TestDuration Test="MotionTest.TestMotionDown" Duration="3707" />
+    <TestDuration Test="MotionTest.TestMotionRight" Duration="1038" />
+    <TestDuration Test="MotionTest.TestMotionLeft" Duration="769" />
+    <TestDuration Test="MotionTest.TestMotionUp" Duration="794" />
+    <TestDuration Test="MotionTest.TestMotionDown" Duration="776" />
     <TestDuration Test="MotionTest.TestMotionDiagonal" Duration="4115" />
-    <TestDuration Test="MotionTest.TestMotionDiagonalDownRight" Duration="3055" />
-    <TestDuration Test="MotionTest.TestMotionDiagonalUpRight" Duration="2711" />
-    <TestDuration Test="MotionTest.TestMotionDiagonalDownLeft" Duration="4123" />
-    <TestDuration Test="MotionTest.TestMotionDiagonalUpLeft" Duration="4020" />
+    <TestDuration Test="MotionTest.TestMotionDiagonalDownRight" Duration="802" />
+    <TestDuration Test="MotionTest.TestMotionDiagonalUpRight" Duration="781" />
+    <TestDuration Test="MotionTest.TestMotionDiagonalDownLeft" Duration="832" />
+    <TestDuration Test="MotionTest.TestMotionDiagonalUpLeft" Duration="819" />
   </TestDurations>
 </GtaTestDurations>

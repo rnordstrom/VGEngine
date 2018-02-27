@@ -4,13 +4,10 @@
 using Input2D::InputHandler;
 
 using Actor2D::Entity;
-using Actor2D::EntityWrapper;
 
 using Registry::EntityRegistry;
 using Registry::Role;
 
-using sf::Texture;
-using sf::Sprite;
 using sf::Event;
 using sf::Keyboard;
 

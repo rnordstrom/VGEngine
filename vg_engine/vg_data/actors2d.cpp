@@ -11,6 +11,7 @@ using Geometry::Dimensions;
 
 using std::pair;
 using std::numeric_limits;
+using std::string;
 
 using float_lim = numeric_limits<float>;
 
@@ -44,8 +45,7 @@ bool Entity::operator==(const Entity & e) const
 	return true;
 }
 
-/*	Initializes an NPC with undefined goals and standard detection/interaction parameters */
-NPC::NPC()
+void NPC::baseInit()
 {
 	Coordinates undefined{ float_lim::infinity(), float_lim::infinity() };
 
@@ -57,7 +57,18 @@ NPC::NPC()
 	interactionRange_ = Dimensions{ 128, 128 };
 }
 
-/*	Sets the priority of the specified goal type */
+/*	Initializes an NPC with undefined goals and standard detection/interaction parameters */
+NPC::NPC()
+{
+	baseInit();
+}
+
+NPC::NPC(Coordinates coordinates, Dimensions dimensions, float angleOfRotation, string textureFileName) :
+	Entity(coordinates, dimensions, angleOfRotation, textureFileName) 
+{
+	baseInit();
+}
+
 void NPC::setGoalPriority(GoalType type, int priority)
 {
 	int zeroIndexedPrio = priority - 1;
@@ -80,3 +91,26 @@ void NPC::setGoalPriority(GoalType type, int priority)
 		}
 	}
 }
+
+const std::pair <GoalType, Geometry::Coordinates> & NPC::getGoalByType(GoalType type) const
+{
+	for (auto goal : goals_)
+	{
+		if (goal.first == type)
+		{
+			return goal;
+		}
+	}
+}
+
+void NPC::setGoalByType(GoalType type, const Geometry::Coordinates & coordinates)
+{
+	for (auto & goal : goals_)
+	{
+		if (goal.first == type)
+		{
+			goal.second = coordinates;
+		}
+	}
+}
+

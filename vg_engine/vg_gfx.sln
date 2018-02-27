@@ -1,17 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vg_gfx", "vg_gfx\vg_gfx.vcxproj", "{4BEEEE1F-522C-44AA-92BD-1068286A4BB3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{829DDBAB-F650-478E-884B-01B104261D7A} = {829DDBAB-F650-478E-884B-01B104261D7A}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vg_ai", "vg_ai\vg_ai.vcxproj", "{346605E4-A356-439C-ACE2-43E0263E7F3D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{957B091B-6F63-4129-8A42-FC7682D54049} = {957B091B-6F63-4129-8A42-FC7682D54049}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vg_ui", "vg_ui\vg_ui.vcxproj", "{A8A56964-BC62-4920-9766-031305FC7C76}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -61,6 +55,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vg_input_test", "vg_input_test\vg_input_test.vcxproj", "{24B0452D-596A-4368-8FB1-27F7720D3E99}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vg_core_test", "vg_core_test\vg_core_test.vcxproj", "{8982394C-D2A5-49C5-9049-9313B285BD74}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vg_ai_test", "vg_ai_test\vg_ai_test.vcxproj", "{26C7C634-F690-4597-B91F-26188440505F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -198,6 +194,14 @@ Global
 		{8982394C-D2A5-49C5-9049-9313B285BD74}.Release|x64.Build.0 = Release|x64
 		{8982394C-D2A5-49C5-9049-9313B285BD74}.Release|x86.ActiveCfg = Release|Win32
 		{8982394C-D2A5-49C5-9049-9313B285BD74}.Release|x86.Build.0 = Release|Win32
+		{26C7C634-F690-4597-B91F-26188440505F}.Debug|x64.ActiveCfg = Debug|x64
+		{26C7C634-F690-4597-B91F-26188440505F}.Debug|x64.Build.0 = Debug|x64
+		{26C7C634-F690-4597-B91F-26188440505F}.Debug|x86.ActiveCfg = Debug|Win32
+		{26C7C634-F690-4597-B91F-26188440505F}.Debug|x86.Build.0 = Debug|Win32
+		{26C7C634-F690-4597-B91F-26188440505F}.Release|x64.ActiveCfg = Release|x64
+		{26C7C634-F690-4597-B91F-26188440505F}.Release|x64.Build.0 = Release|x64
+		{26C7C634-F690-4597-B91F-26188440505F}.Release|x86.ActiveCfg = Release|Win32
+		{26C7C634-F690-4597-B91F-26188440505F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

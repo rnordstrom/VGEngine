@@ -29,10 +29,10 @@ namespace Actor2D
 			dimensions_{ dimensions }, 
 			angleOfRotation_{ angleOfRotation },
 			textureFileName_{ textureFileName } {};
-		inline Geometry::Coordinates & coordinates() { return coordinates_; };
-		inline Geometry::Dimensions & dimensions() { return dimensions_; };
-		inline float getAngleOfRotation() { return angleOfRotation_; };
-		inline void setAngleOfRotation(float angleOfRotation) { angleOfRotation_ = angleOfRotation; };
+		Geometry::Coordinates & coordinates() { return coordinates_; };
+		Geometry::Dimensions & dimensions() { return dimensions_; };
+		float getAngleOfRotation() { return angleOfRotation_; };
+		void setAngleOfRotation(float angleOfRotation) { angleOfRotation_ = angleOfRotation; };
 		const std::string & getTextureFileName() const;
 		virtual bool operator==(const Entity &) const;
 		virtual ~Entity() {};
@@ -43,20 +43,20 @@ namespace Actor2D
 	class EntityWrapper
 	{
 	private:
-		Actor2D::Entity entity_;
+		Entity entity_;
 		std::shared_ptr<Texture> texture_;
 		Sprite sprite_;
 	public:
-		EntityWrapper(const Actor2D::Entity & entity, const std::shared_ptr<Texture> & texture, const Sprite & sprite) :
+		EntityWrapper(const Entity & entity, const std::shared_ptr<Texture> & texture, const Sprite & sprite) :
 			entity_{ entity }, 
 			texture_{ texture }, 
 			sprite_{ sprite } {};
-		inline Actor2D::Entity & entity() { return entity_; };
-		inline const std::shared_ptr<Texture> & getTexture() const { return texture_; };
-		inline Sprite & sprite() { return sprite_; };
+		Entity & entity() { return entity_; };
+		const std::shared_ptr<Texture> & getTexture() const { return texture_; };
+		Sprite & sprite() { return sprite_; };
 	};
 
-	/*	Represents an abstract NPC. An NPC has a set of goals ordered strictly by numeric priority: {1, 2, ..., n};
+	/*	Represents an abstract NPC. An NPC has a set of goals ordered strictly by numeric, non-zero priority: {1, 2, ..., n};
 		goals consist of a goal type and a set of coordinates in 2D space at which they can be reached by the NPC.
 		NPCs are furthermore equipped with a rectangular range wherein they can detect a player or other NPCs, 
 		and another rectangular range wherein they can interact with other entities. */
@@ -66,31 +66,18 @@ namespace Actor2D
 		std::vector<std::pair<GoalType, Geometry::Coordinates>> goals_;
 		Geometry::Dimensions detectionRange_;
 		Geometry::Dimensions interactionRange_;
+		void baseInit();
 	public:
 		NPC();
-		NPC(Geometry::Coordinates coordinates, Geometry::Dimensions dimensions, float angleOfRotation, std::string textureFileName) :
-			Entity(coordinates, dimensions, angleOfRotation, textureFileName) {};
-		inline const std::pair<GoalType, Geometry::Coordinates> & getGoalByPriority(int priority) const { return goals_.at(priority - 1); };
+		NPC(Geometry::Coordinates coordinates, Geometry::Dimensions dimensions, float angleOfRotation, std::string textureFileName);
+		const std::pair<GoalType, Geometry::Coordinates> & getGoalByPriority(int priority) const { return goals_.at(priority - 1); };
 		void setGoalPriority(GoalType type, int priority);
-		inline const std::pair <GoalType, Geometry::Coordinates> & getGoalByType(GoalType type) const
-		{
-			for (auto goal : goals_)
-			{
-				if (goal.first == type)
-				{
-					return goal;
-				}
-			}
-		}
-		inline void setGoalByType(GoalType type, const Geometry::Coordinates & coordinates)
-		{
-			for (auto & goal : goals_)
-			{
-				if (goal.first == type)
-				{
-					goal.second = coordinates;
-				}
-			}
-		};
+		const std::pair <GoalType, Geometry::Coordinates> & getGoalByType(GoalType type) const;
+		void setGoalByType(GoalType type, const Geometry::Coordinates & coordinates);
+		Geometry::Dimensions & detectionRange() { return detectionRange_; };
+		Geometry::Dimensions & interactionRange() { return interactionRange_; };
+		int numGoals() { return goals_.size(); };
+		virtual ~NPC() {};
 	};
 }
+

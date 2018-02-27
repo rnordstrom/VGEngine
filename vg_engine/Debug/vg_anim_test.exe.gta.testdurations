@@ -2,6 +2,6 @@
 <GtaTestDurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Executable>C:\Users\Rikard\Documents\GitHub\VGEngine\vg_engine\Debug\vg_anim_test.exe</Executable>
   <TestDurations>
-    <TestDuration Test="AnimationTests.TestApply" Duration="4172" />
+    <TestDuration Test="AnimationTests.TestApply" Duration="789" />
   </TestDurations>
 </GtaTestDurations>
