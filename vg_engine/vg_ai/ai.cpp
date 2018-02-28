@@ -65,13 +65,18 @@ void InteractionHandler::handleInteraction(NPC & npc, Entity entity)
 
 void Coordinator::resolveGoals(NPC & npc, vector<Entity> entities)
 {
+	bool goalComplete = false;
+
 	for (int p = 1; p < npc.numGoals(); p++)
 	{
 		auto goal = npc.getGoalByPriority(p);
 
 		if (goal.first == GoalType::location)
 		{
-			pathFinder_.findPath(npc, goal.second);
+			if (pathFinder_.findPath(npc, goal.second))
+			{
+				goalComplete = true;
+			}
 		}
 		else if (goal.first == GoalType::interaction)
 		{
@@ -88,8 +93,15 @@ void Coordinator::resolveGoals(NPC & npc, vector<Entity> entities)
 				if (interactionHandler_.canInteract(npc, entity))
 				{
 					interactionHandler_.handleInteraction(npc, entity);
+
+					goalComplete = true;
 				}
 			}
+		}
+
+		if (goalComplete)
+		{
+			break;
 		}
 	}
 }
