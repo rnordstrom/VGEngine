@@ -64,7 +64,7 @@ NPC::NPC()
 }
 
 NPC::NPC(Coordinates coordinates, Dimensions dimensions, float angleOfRotation, string textureFileName) :
-	Entity(coordinates, dimensions, angleOfRotation, textureFileName) 
+	Entity{ coordinates, dimensions, angleOfRotation, textureFileName }
 {
 	baseInit();
 }
