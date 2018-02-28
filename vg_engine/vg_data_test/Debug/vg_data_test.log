@@ -1,3 +1,0 @@
-﻿  test.cpp
-vg_data.lib(actors2d.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  vg_data_test.vcxproj -> C:\Users\Rikard\Documents\GitHub\VGEngine\vg_engine\Debug\vg_data_test.exe

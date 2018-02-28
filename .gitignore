@@ -2,11 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+Debug/
 /vg_engine/.vs/
-/**/Debug/
 /vg_engine/Dependencies/
 /vg_engine/packages/
-/vg_engine/vg_gfx.sln
-/**/*.vcxproj
-/**/*.vcxproj.filters
 

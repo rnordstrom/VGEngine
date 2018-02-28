@@ -1,4 +1,0 @@
-﻿  test.cpp
-  LINK : C:\Users\Rikard\Documents\GitHub\VGEngine\vg_engine\Debug\vg_gfx_test.exe not found or not built by the last incremental link; performing full link
-vg_gfx.lib(graphics2d.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  vg_gfx_test.vcxproj -> C:\Users\Rikard\Documents\GitHub\VGEngine\vg_engine\Debug\vg_gfx_test.exe
