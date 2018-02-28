@@ -5,6 +5,8 @@
 
 using Actor2D::Entity;
 using Actor2D::EntityWrapper;
+using Actor2D::NPC;
+using Actor2D::GoalType;
 
 using Geometry::Coordinates;
 using Geometry::Dimensions;
@@ -12,7 +14,7 @@ using Geometry::Dimensions;
 using std::string;
 using std::shared_ptr;
 
-TEST(EntityTest, TestConstructor) 
+TEST(EntityTests, TestConstructor) 
 {
 	Coordinates coordinates{5, 15};
 	Dimensions dimensions{10, 25};
@@ -32,7 +34,7 @@ TEST(EntityTest, TestConstructor)
 	EXPECT_STREQ(textureFileName.c_str(), entity.getTextureFileName().c_str());
 }
 
-TEST(EntityTest, TestGetSet)
+TEST(EntityTests, TestGetSet)
 {
 	Entity emptyEntity;
 
@@ -55,7 +57,7 @@ TEST(EntityTest, TestGetSet)
 	EXPECT_EQ(angleOfRotation, emptyEntity.getAngleOfRotation());
 }
 
-TEST(EntityWrapperTest, TestConstructor)
+TEST(EntityWrapperTests, TestConstructor)
 {
 	Entity emptyEntity;
 	shared_ptr<string> texture = std::make_shared<string>("Dummy texture representation");
@@ -69,4 +71,50 @@ TEST(EntityWrapperTest, TestConstructor)
 	EXPECT_EQ(wrapper1.getTexture(), wrapper2.getTexture());
 	EXPECT_STREQ(wrapper1.getTexture()->c_str(), wrapper2.getTexture()->c_str());
 	EXPECT_STREQ(wrapper1.sprite().c_str(), wrapper2.sprite().c_str());
+}
+
+TEST(NpcTests, TestGetGoalByPriority)
+{
+	NPC npc;
+
+	auto firstPriorityGoal = npc.getGoalByPriority(1);
+	auto secondPriorityGoal = npc.getGoalByPriority(2);
+
+	ASSERT_EQ(GoalType::interaction, firstPriorityGoal.first);
+	ASSERT_EQ(GoalType::location, secondPriorityGoal.first);
+}
+
+TEST(NpcTests, TestSetGoalPriority)
+{
+	NPC npc;
+
+	npc.setGoalPriority(GoalType::location, 1);
+
+	auto firstPriorityGoal = npc.getGoalByPriority(1);
+	auto secondPriorityGoal = npc.getGoalByPriority(2);
+
+	ASSERT_EQ(GoalType::location, firstPriorityGoal.first);
+	ASSERT_EQ(GoalType::interaction, secondPriorityGoal.first);
+}
+
+TEST(NpcTests, TestGetGoalByType) 
+{
+	NPC npc;
+
+	auto interactionGoal = npc.getGoalByType(GoalType::interaction);
+
+	ASSERT_EQ(GoalType::interaction, interactionGoal.first);
+}
+
+TEST(NpcTests, TestSetGoalByType)
+{
+	NPC npc;
+	Coordinates walkHere{ 64, 64 };
+
+	npc.setGoalByType(GoalType::location, walkHere);
+
+	auto locationGoal = npc.getGoalByType(GoalType::location);
+
+	ASSERT_EQ(walkHere.x, locationGoal.second.x);
+	ASSERT_EQ(walkHere.y, locationGoal.second.y);
 }

@@ -13,6 +13,6 @@ namespace Animate2D
 	public:
 		explicit Animator(const std::string & windowTitle) : renderer{ windowTitle } {};
 		void apply(Actor2D::EntityWrapper<sf::Texture, sf::Sprite> & wrapper);
-		inline Render2D::Renderer & getRenderer() { return renderer; };
+		Render2D::Renderer & getRenderer() { return renderer; };
 	};
 }

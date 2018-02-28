@@ -13,14 +13,14 @@ namespace Input2D
 		Animate2D::Animator animator_;
 		Physics2D::Motor motor_;
 		bool running_;
-		void mapInput_(Actor2D::Entity & wrapper);
+		void mapInput_(Actor2D::Entity & entity);
 	public:
 		InputHandler(std::string windowTitle, int windowWidth, int windowHeight) :
 			animator_{ windowTitle },
 			motor_{ Physics2D::CollisionDetector(windowWidth, windowHeight) },
 			running_{ false } {};
 		void startInputLoop();
-		inline void stopInputLoop() { running_ = false; };
-		inline bool loopIsRunning() { return running_; };
+		void stopInputLoop() { running_ = false; };
+		bool loopIsRunning() { return running_; };
 	};
 }

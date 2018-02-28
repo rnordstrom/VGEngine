@@ -2,8 +2,9 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/vg_engine/.vs/vg_gfx/v15/Browse.VC.opendb
-/vg_engine/.vs/vg_gfx/v15/Browse.VC.db
-/vg_engine/.vs/vg_gfx/v15/Solution.VC.db-shm
-/vg_engine/.vs/vg_gfx/v15/Solution.VC.db-wal
-/vg_engine/.vs/vg_gfx/v15/.suo
+Debug/
+/vg_engine/.vs/
+/vg_engine/Dependencies/
+/vg_engine/packages/
+*vcxproj.user
+

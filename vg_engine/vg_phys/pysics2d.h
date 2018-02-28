@@ -22,21 +22,15 @@ namespace Physics2D
 		int windowWidth_;
 		int windowHeight_;
 		CollisionDetails collisionDetails_;
-		inline void resetCollisionDetails()
-		{
-			collisionDetails_.collisionX = false;
-			collisionDetails_.collisionY = false;
-			collisionDetails_.hDir = HorizontalDirection::none;
-			collisionDetails_.vDir = VerticalDirection::none;
-		};
+		void resetCollisionDetails();
 	public:
 		CollisionDetector(int windowWidth, int windowHeight) : 
 			windowWidth_{ windowWidth }, 
 			windowHeight_{ windowHeight } {};
 		bool detect(Actor2D::Entity);
-		inline const CollisionDetails & getCollisionDetails() const { return collisionDetails_; };
-		inline void setScreenWidth(int screenWidth) { windowWidth_ = screenWidth; };
-		inline void setScreenHeight(int screenHeight) { windowHeight_ = screenHeight; };
+		const CollisionDetails & getCollisionDetails() const { return collisionDetails_; };
+		void setScreenWidth(int screenWidth) { windowWidth_ = screenWidth; };
+		void setScreenHeight(int screenHeight) { windowHeight_ = screenHeight; };
 	};
 
 	/*	Moves an Entity across 2D space.
@@ -45,7 +39,7 @@ namespace Physics2D
 	{
 	private:
 		CollisionDetector collisionDetector_;
-		inline void moveUp_(Actor2D::Entity & entity) { entity.coordinates().y -= 1.0; };
+		void moveUp_(Actor2D::Entity & entity) { entity.coordinates().y -= 1.0; };
 		void moveDown_(Actor2D::Entity & entity) { entity.coordinates().y += 1.0; };
 		void moveLeft_(Actor2D::Entity & entity) { entity.coordinates().x -= 1.0; };
 		void moveRight_(Actor2D::Entity & entity) { entity.coordinates().x += 1.0; };
@@ -57,3 +51,11 @@ namespace Physics2D
 		void moveRight(Actor2D::Entity & entity);
 	};
 }
+
+inline void Physics2D::CollisionDetector::resetCollisionDetails()
+{
+	collisionDetails_.collisionX = false;
+	collisionDetails_.collisionY = false;
+	collisionDetails_.hDir = HorizontalDirection::none;
+	collisionDetails_.vDir = VerticalDirection::none;
+};
