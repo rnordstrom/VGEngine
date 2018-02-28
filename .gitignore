@@ -6,4 +6,5 @@ Debug/
 /vg_engine/.vs/
 /vg_engine/Dependencies/
 /vg_engine/packages/
+*vcxproj.user
 
